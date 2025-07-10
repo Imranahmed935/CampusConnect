@@ -1,6 +1,8 @@
+
 import Link from "next/link";
 
 export default function Navbar() {
+  
   return (
     <nav className="bg-blue-600 text-white rounded mt-4 p-4 flex items-center justify-between max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold">
@@ -14,6 +16,7 @@ export default function Navbar() {
         <Link href="/profile">Profile</Link>
         <Link href="/signUp">SignUp</Link>
         <Link href="/signIn">SignIn</Link>
+      
       </div>
     </nav>
   );
