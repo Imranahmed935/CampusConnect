@@ -5,10 +5,32 @@ import { useState } from "react";
 import axios from "axios";
 import { updateProfile } from "firebase/auth";
 import auth from "@/firebase/firebase.config";
+import { useRouter } from "next/navigation";
 
 const SignUpPage = () => {
-  const { createUser } = useAuth();
+  const { createUser, googleSignIn, gitHubLogin } = useAuth();
   const [uploading, setUploading] = useState(false);
+  const router = useRouter();
+
+  const googleSignUp = () => {
+    googleSignIn()
+      .then((result) => {
+        router.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const githubSignUp = () => {
+    gitHubLogin()
+      .then((result) => {
+        router.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleSighUp = async (e) => {
     e.preventDefault();
@@ -17,7 +39,6 @@ const SignUpPage = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const file = e.target.image.files[0];
-
 
     setUploading(true);
 
@@ -36,9 +57,9 @@ const SignUpPage = () => {
       const response = await axios.post(uploadUrl, formData);
       const imageUrl = response.data.secure_url;
 
-
       // ✅ Call createUser from context
       createUser(email, password).then((result) => {
+        router.push("/");
         console.log(result.user);
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -121,6 +142,29 @@ const SignUpPage = () => {
             {uploading ? "Uploading..." : "Sign Up"}
           </button>
         </form>
+        <button
+          onClick={googleSignUp}
+          className="w-full mt-6 flex items-center justify-center gap-3 border py-3 rounded-md hover:bg-gray-100 transition"
+        >
+          <img
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            alt="Google"
+            className="w-5 h-5"
+          />
+          <span className="text-sm text-gray-700">Continue with Google</span>
+        </button>
+
+        <button
+          onClick={githubSignUp}
+          className="w-full mt-4 flex items-center justify-center gap-3 border py-3 rounded-md hover:bg-gray-100 transition"
+        >
+          <img
+            src="https://www.svgrepo.com/show/512317/github-142.svg"
+            alt="GitHub"
+            className="w-5 h-5"
+          />
+          <span className="text-sm text-gray-700">Continue with GitHub</span>
+        </button>
 
         <p className="text-center text-sm text-gray-600 mt-6">
           Already have an account?{" "}
