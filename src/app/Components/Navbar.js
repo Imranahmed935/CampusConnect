@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -12,6 +12,8 @@ export default function Navbar() {
         <Link href="/admission">Admission</Link>
         <Link href="/my-college">My College</Link>
         <Link href="/profile">Profile</Link>
+        <Link href="/signUp">SignUp</Link>
+        <Link href="/signIn">SignIn</Link>
       </div>
     </nav>
   );
