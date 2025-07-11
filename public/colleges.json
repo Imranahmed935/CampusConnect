@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Greenfield University",
+    "image": "https://res.cloudinary.com/dcibmye5q/image/upload/v1752246915/iepoof8idp1im8sbj7fj.jpg",
+    "rating": 4.5,
+    "admissionDate": "2025-08-15",
+    "researchCount": 120,
+    "events": ["Tech Fest", "Cultural Night", "Entrepreneurship Bootcamp"],
+    "sports": ["Football", "Basketball", "Cricket"],
+    "description": "Greenfield University is renowned for innovation and research excellence."
+  },
+  {
+    "id": 2,
+    "name": "Hilltop College",
+    "image": "https://res.cloudinary.com/dcibmye5q/image/upload/v1752246871/rwnc4aakaqnpdaubujf7.jpg",
+    "rating": 4.3,
+    "admissionDate": "2025-07-01",
+    "researchCount": 95,
+    "events": ["Science Exhibition", "Debate Competition"],
+    "sports": ["Volleyball", "Badminton", "Swimming"],
+    "description": "A college set in the hills, focusing on science and sustainability."
+  },
+  {
+    "id": 3,
+    "name": "Sunrise Institute",
+    "image": "https://res.cloudinary.com/dcibmye5q/image/upload/v1752246780/eszggl40wgzjjehind1i.jpg",
+    "rating": 4.6,
+    "admissionDate": "2025-09-10",
+    "researchCount": 110,
+    "events": ["Innovation Fair", "Startup Pitch", "Tech Talk"],
+    "sports": ["Tennis", "Basketball"],
+    "description": "Sunrise Institute fosters entrepreneurship and modern education."
+  },
+  {
+    "id": 4,
+    "name": "BlueLake University",
+    "image": "https://res.cloudinary.com/dcibmye5q/image/upload/v1752246780/eszggl40wgzjjehind1i.jpg",
+    "rating": 4.7,
+    "admissionDate": "2025-08-25",
+    "researchCount": 130,
+    "events": ["AI Symposium", "Hackathon", "Sports Day"],
+    "sports": ["Rowing", "Cricket", "Track and Field"],
+    "description": "BlueLake is famous for its cutting-edge AI research and sports excellence."
+  },
+  {
+    "id": 5,
+    "name": "Maple Leaf College",
+    "image": "https://res.cloudinary.com/dcibmye5q/image/upload/v1752246871/rwnc4aakaqnpdaubujf7.jpg",
+    "rating": 4.2,
+    "admissionDate": "2025-07-20",
+    "researchCount": 90,
+    "events": ["Career Fair", "Cultural Fest", "Seminar Series"],
+    "sports": ["Football", "Hockey", "Athletics"],
+    "description": "Maple Leaf blends academic achievement with global cultural awareness."
+  },
+  {
+    "id": 6,
+    "name": "Riverside Institute of Technology",
+    "image": "https://res.cloudinary.com/dcibmye5q/image/upload/v1752246871/rwnc4aakaqnpdaubujf7.jpg",
+    "rating": 4.4,
+    "admissionDate": "2025-08-05",
+    "researchCount": 105,
+    "events": ["Robotics Show", "Math Olympiad", "Innovation Week"],
+    "sports": ["Esports", "Basketball", "Martial Arts"],
+    "description": "Riverside excels in robotics and hands-on tech innovation."
+  }
+]
