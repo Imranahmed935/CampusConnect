@@ -1,23 +1,45 @@
-'use client'
+"use client";
 
-
+import { useAuth } from "@/Context/AuthProvider";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Card from "../Components/Card";
 
 const MyCollegePage = () => {
-  
+  const { user } = useAuth();
+  const [myCollege, setMyCollege] = useState([]);
+ 
+
+  useEffect(() => {
+    const fetchCollege = async () => {
+      if (!user?.email) return;
+
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/admission/${user.email}`
+        );
+        setMyCollege(res.data.data);
+      } catch (error) {
+        console.error("Failed to fetch college data:", error);
+      }
+    };
+
+    fetchCollege();
+  }, [user?.email]);
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold text-center mb-8 text-blue-600">My College</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-blue-600">
+        My College
+      </h1>
 
-      {/* College Info */}
-      <div className="bg-white p-6 rounded-md shadow-md mb-8">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Greenfield University</h2>
-        <p><span className="font-medium">Subject:</span> Computer Science</p>
-        <p><span className="font-medium">Admission Date:</span> July 15, 2025</p>
-        <p><span className="font-medium">Candidate Name:</span> Imran Ahmed</p>
-        <p><span className="font-medium">Email:</span> imran@example.com</p>
-        <p><span className="font-medium">Phone:</span> +8801XXXXXXX</p>
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
+        {/* College Info */}
+      {myCollege.map((college) => (
+        <Card key={college._id} college={college} />
+      ))}
+
       </div>
-
       {/* Add Review */}
       <div className="bg-gray-50 p-6 rounded-md shadow-md mb-8">
         <h3 className="text-xl font-semibold mb-4">Add Your Review</h3>
@@ -58,11 +80,15 @@ const MyCollegePage = () => {
         <div className="space-y-3">
           <div className="border-b pb-3">
             <p className="text-gray-700">⭐⭐⭐⭐⭐</p>
-            <p className="text-gray-800">Amazing college! Great faculty and facilities.</p>
+            <p className="text-gray-800">
+              Amazing college! Great faculty and facilities.
+            </p>
           </div>
           <div className="border-b pb-3">
             <p className="text-gray-700">⭐⭐⭐⭐</p>
-            <p className="text-gray-800">Good experience overall. Could improve events organization.</p>
+            <p className="text-gray-800">
+              Good experience overall. Could improve events organization.
+            </p>
           </div>
         </div>
       </div>
