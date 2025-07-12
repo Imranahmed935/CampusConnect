@@ -20,7 +20,7 @@ const ProfilePage = () => {
 
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/admission/${user.email}`
+          `https://college-server-lyart.vercel.app/admission/${user.email}`
         );
         const data = res.data.data;
         setFormData({
@@ -30,7 +30,7 @@ const ProfilePage = () => {
           address: data?.address || ""
         });
       } catch (error) {
-        console.error("Failed to fetch college data:", error);
+        toast.error("Failed to fetch college data:", error);
       }
     };
 
@@ -45,15 +45,15 @@ const ProfilePage = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/admission/${user.email}`,
+        `https://college-server-lyart.vercel.app/profile/${user?.email}`,
         formData
       );
       if (res.status === 200) {
         toast.success("✅ Profile updated successfully!");
       }
     } catch (error) {
-      console.error("Update failed:", error);
-      alert("❌ Failed to update profile");
+      toast.error("Update failed:", error);
+      toast.error("❌ Failed to update profile");
     }
   };
 
