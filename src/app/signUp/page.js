@@ -6,6 +6,7 @@ import axios from "axios";
 import { updateProfile } from "firebase/auth";
 import auth from "@/firebase/firebase.config";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
   const { createUser, googleSignIn, gitHubLogin } = useAuth();
@@ -68,7 +69,7 @@ const SignUpPage = () => {
       });
     } catch (error) {
       console.error("Image upload failed:", error);
-      alert("Image upload failed. Please try again.");
+      toast.error("Image upload failed. Please try again.");
     } finally {
       setUploading(false);
     }
